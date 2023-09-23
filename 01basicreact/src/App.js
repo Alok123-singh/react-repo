@@ -1,7 +1,13 @@
 
+import Chai from './Chai'
+
 function App() {
   return (
-    <h1>Hello World from basic react !</h1>
+    <>
+      <Chai />
+      <h1>Hello World from basic react !</h1>
+      <p>test para</p>
+    </>
   );
 }
 
