@@ -10,7 +10,7 @@ function InputBox({
     amount,
     onAmountChange
 }) {
-    console.log(availaibleOptions);
+    // console.log(availaibleOptions);
     return (
         <div className='... flex justify-between items-center'>
             <div className='... flex justify-center items-center flex-col'>
