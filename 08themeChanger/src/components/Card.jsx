@@ -9,7 +9,10 @@ function Card() {
                 <img className=" w-8- h-100 p-8 rounded-t-lg" src={Pic} alt="product_image1" />
             </a>
             <div className="px-5 pb-5">
-                <a href="/" onClick={(e) => e.preventDefault()}>
+                <a
+                href="https://www.flipkart.com/apple-watch-series7-gps-45mm-product-red-aluminium-case-product-red-sport-band/p/itma723cec68388f?pid=SMWG7BG2HTV4VYYZ&lid=LSTSMWG7BG2HTV4VYYZNDTAAE&marketplace=FLIPKART&sattr[]=color&sattr[]=display_size&st=color"
+                target='_blank' 
+                >
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                         Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
                     </h5>
@@ -65,7 +68,7 @@ function Card() {
                     </span>
                 </div>
                 <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white">₹44,900</span>
                     <a
                         href="/"
                         onClick={(e) => e.preventDefault()}
