@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import './App.css'
+import './index.css'
 import TButton from './components/ThemeButton'
 import Card from './components/Card'
 import { ThemeProvider } from './context/theme';
