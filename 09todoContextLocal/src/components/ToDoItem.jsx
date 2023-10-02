@@ -28,7 +28,7 @@ function ToDoItem({ todo }) {
 
             <button 
                 type="button"
-                className='... w-[2rem] h-[2rem] rounded-lg text-center border-solid border border-blue-900 bg-white dark:bg-green-600 dark:hover:bg-green-400 ml-1'
+                className='... w-[2rem] h-[2rem] rounded-lg text-center border-solid border border-blue-900 bg-white hover:bg-purple-500 dark:bg-green-600 dark:hover:bg-green-400 ml-1'
                 onClick={() => {
                     if(updatedMsg === '') return;
                     if(todo.completed === true){
@@ -50,7 +50,7 @@ function ToDoItem({ todo }) {
 
             <button 
                 type="button"
-                className='... w-[2rem] h-[2rem] rounded-lg text-center border-solid border border-blue-900 bg-white dark:bg-red-300 dark:hover:bg-red-200 ml-1'
+                className='... w-[2rem] h-[2rem] rounded-lg text-center cursor-pointer border-solid border border-blue-900 bg-white hover:bg-red-200 dark:bg-red-300 dark:hover:bg-red-200 ml-1'
                 onClick={() => deleteToDo(todo.id)}
                 disabled={todo.completed}
             >

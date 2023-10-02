@@ -29,7 +29,7 @@ function ToDoForm() {
                 onChange={(e) => setToDoMsg(e.target.value)}
                 />
                 <button 
-                className='w-[4rem] h-[2rem] bg-blue-600 dark:hover:bg-blue-500 ml-2 rounded-lg text-white text-center border-solid border-2 border-blue-900' 
+                className='w-[4rem] h-[2rem] bg-blue-600 hover:bg-purple-500 dark:hover:bg-blue-500 ml-2 rounded-lg text-white text-center border-solid border-2 border-blue-900' 
                 type='submit'
                 > 
                     Add 
