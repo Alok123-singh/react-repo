@@ -24,7 +24,7 @@ function ToDoForm() {
             <form onSubmit={(e) => add(e)}>
                 <input 
                 type='text' 
-                className='w-[30rem] h-[2rem] cursor-pointer rounded-lg text-center border-solid border border-blue-900 dark:bg-emerald-400 placeholder-black' placeholder='write some task' 
+                className='w-[30rem] h-[2rem] cursor-pointer rounded-lg text-center border-solid border border-blue-900 dark:bg-emerald-400 placeholder-black' placeholder='write some note' 
                 value={todoMsg}
                 onChange={(e) => setToDoMsg(e.target.value)}
                 />
