@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './App.css'
 import InputBox from './components/InputBox'
 
+// custom hook
 function fetchCurrencyOptions(currency){
   const [data,setData] = useState({});
   const fetchOptions = useCallback(() => {
