@@ -37,7 +37,7 @@ function ToDoItem({ todo }) {
                     }
                     
                     if(isEditable){
-                        updateToDo(todo.id,{...todo, todo: updatedMsg});
+                        updateToDo(todo.id,updatedMsg);
                         setIsEditable(false);
                     }
                     else{
