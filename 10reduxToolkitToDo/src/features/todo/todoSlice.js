@@ -1,13 +1,11 @@
 import {createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
-    todos: [{id: nanoid(), text: "Start using todo !", completed : false}],
+    todos: [{id: nanoid(), text: "Start using todo !", completed : false, expand: false}],
     updateMessage : '',
     updateStatus : false,
     themeMode : 'light'
 }
-
-
 
 export const todoSlice = createSlice({
     name: 'todo',
@@ -51,10 +49,13 @@ export const todoSlice = createSlice({
         },
         saveThemeMode : (state,action) => {
             state.themeMode = action.payload;
+        },
+        toggleExpand: (state,action) => {
+            state.todos = state.todos.map((todo) => todo.id === action.payload ? {...todo, expand : !todo.expand} : todo);
         }
     }
 })
 
-export const {addTodo, removeTodo, updateTodo, toggleTodo, setUpdateMessage, setUpdateStatus, setTodo, toggleTheme, saveThemeMode} = todoSlice.actions
+export const {addTodo, removeTodo, updateTodo, toggleTodo, setUpdateMessage, setUpdateStatus, setTodo, toggleTheme, saveThemeMode, toggleExpand} = todoSlice.actions
 
 export default todoSlice.reducer

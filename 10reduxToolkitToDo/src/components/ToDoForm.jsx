@@ -26,19 +26,25 @@ function ToDoForm() {
     };
 
     useEffect(() => {
+        dispatch(setUpdateMessage(note));
+    },[note]);
+
+    useEffect(() => {
         setNote(updateMessage);
     }, [updateStatus]);
 
     useEffect(() => {
         const todos = JSON.parse(localStorage.getItem('todos'));
         const savedUpdateMessage = JSON.parse(localStorage.getItem('savedUpdateMessage'));
-        const savedUpdateStatus = JSON.parse(localStorage.getItem('savedUpdateStatus'));;
-        const savedThemeMode = JSON.parse(localStorage.getItem('savedThemeMode'));;
+        const savedUpdateStatus = JSON.parse(localStorage.getItem('savedUpdateStatus'));
+        const savedThemeMode = JSON.parse(localStorage.getItem('savedThemeMode'));
+        const savedNote = JSON.parse(localStorage.getItem('savedNote'));
 
         if(todos && todos.length > 0) dispatch(setTodo(todos));
         if(savedUpdateMessage) dispatch(setUpdateMessage(savedUpdateMessage));
         if(savedUpdateStatus) dispatch(setUpdateStatus(savedUpdateStatus));
         if(savedThemeMode) dispatch(saveThemeMode(savedThemeMode));
+        if(savedNote) setNote(savedNote);
     },[]);
 
     useEffect(() => {
@@ -46,7 +52,8 @@ function ToDoForm() {
         localStorage.setItem('savedUpdateStatus',JSON.stringify(updateStatus));
         localStorage.setItem('savedUpdateMessage',JSON.stringify(updateMessage));
         localStorage.setItem('savedThemeMode',JSON.stringify(themeMode));
-    }, [todos]);
+        localStorage.setItem('savedNote',JSON.stringify(note));
+    }, [todos,themeMode,updateMessage,note]);
 
     return (
         <div className='mt-10'>

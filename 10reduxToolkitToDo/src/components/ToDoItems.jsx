@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../index.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeTodo, toggleTodo, setUpdateMessage, setUpdateStatus, setTodo } from '../features/todo/todoSlice'
+import { removeTodo, toggleTodo, setUpdateMessage, setUpdateStatus, toggleExpand } from '../features/todo/todoSlice'
 
 function ToDoItems() {
-
-    const [expand,setExpand] = useState(false);
 
     const todos = useSelector(state => state.todos)
     const dispatch = useDispatch();
 
-    const toggleExpand = () => {
-        setExpand(prev => !prev);
-    };
-    
     return (
         <div className='mt-[3rem]'>
             {todos.map((todo) => 
@@ -24,29 +18,29 @@ function ToDoItems() {
               id={todo.id} 
               className="peer hidden" 
               onChange={() => dispatch(toggleTodo(todo.id))}
+              checked={todo.completed}
               />
               <label htmlFor={todo.id} className="select-none cursor-pointer rounded-lg border-2 border-gray-800
               py-1 px-1 font-bold text-black transition-colors duration-200 ease-in-out bg-white peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-gray-200 
               hover:bg-gray-400"
               > Check me </label>
 
-              <textarea 
-                    type='text' 
-                    className={`w-[43rem] ${expand ? "h-auto" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] mx-3 outline-none overflow-y-scroll
+              <textarea
+                    type='text'
+                    className={`w-[43rem] ${todo.expand ? "h-auto" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] mx-3 outline-none overflow-y-scroll
                     border-2 border-purple-800 cursor-default flux `}
                     value={todo.text}
                     readOnly={true}
               />
               
-
               <button 
-              type='button' 
-              class="relative inline-block px-4 py-2 font-medium group"
-              onClick={toggleExpand}
+              type='button'
+              className="relative inline-block px-4 py-2 font-medium group"
+              onClick={() => dispatch(toggleExpand(todo.id))}
               >
-                <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-                <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
-                <span class="relative text-black group-hover:text-white">Expand</span>
+                <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                <span className="relative text-black group-hover:text-white">Expand</span>
               </button>
               
               <button 
@@ -82,9 +76,3 @@ function ToDoItems() {
 }
 
 export default ToDoItems
-
-
-{/* <div className='... flex flex-col items-center'>
-    <input for={todo.id} type="checkbox" className="h-[1.2rem] w-[1.2rem] hidden"/>
-    <label for={todo.id} className='... w-[6rem] h-[1.5rem] bg-gray-300 flex justify-center items-center text-black rounded-lg mt-[4px] hover:bg-gray-500 '>Choose me</label>
-</div> */}
