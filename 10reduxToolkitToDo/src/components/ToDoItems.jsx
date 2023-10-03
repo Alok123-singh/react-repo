@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import '../index.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeTodo, toggleTodo, setUpdateMessage, setUpdateStatus, toggleExpand } from '../features/todo/todoSlice'
 
 function ToDoItems() {
-
+    
     const todos = useSelector(state => state.todos)
     const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ function ToDoItems() {
 
               <textarea
                     type='text'
-                    className={`w-[43rem] ${todo.expand ? "h-auto" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] mx-3 outline-none overflow-y-scroll
+                    className={`w-[43rem] ${todo.expand ? "h-[6.5rem]" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] mx-3 outline-none overflow-y-scroll
                     border-2 border-purple-800 cursor-default flux `}
                     value={todo.text}
                     readOnly={true}
