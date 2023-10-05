@@ -12,12 +12,12 @@ function App() {
   return (
     <div>
       
-      <div className='flex flex-row-reverse justify-start items-center mr-[6rem] mt-3'>
+      <div className='flex flex-wrap flex-row-reverse justify-start items-center mr-[6rem] mt-3'>
           <ThemeButton /> 
       </div>
 
-      <div className='flex justify-center h-[32.2rem] w-[75rem] mt-3'>
-          <div className='w-[72rem] h-[30rem] rounded-xl bg-green-600 flex flex-col items-center outline-double overflow-auto bg-cover' style={{backgroundImage: `url(${Pic})`}}>
+      <div className='flex flex-wrap h-auto w-full mt-3 mb-7'>
+          <div className='md:w-auto mx-[1rem] md:mx-[3rem] h-auto lg:h-[29.4rem] rounded-xl bg-green-600 flex flex-wrap justify-center items-center outline-double overflow-auto bg-cover' style={{backgroundImage: `url(${Pic})`}}>
 
             <ToDoForm />
 

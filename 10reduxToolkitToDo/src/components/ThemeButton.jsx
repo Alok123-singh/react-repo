@@ -20,7 +20,7 @@ function ThemeButton() {
     }, [themeMode]);
 
     return (
-        <label className="relative inline-flex items-center cursor-pointer">
+        <label className="relative inline-flex my-4 md:my-2 items-center cursor-pointer">
             
             <input
                 type="checkbox"

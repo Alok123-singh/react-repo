@@ -56,12 +56,12 @@ function ToDoForm() {
     }, [todos,themeMode,updateMessage,note]);
 
     return (
-        <div className='mt-10'>
-            <form onSubmit={addToDo} className='... flex justify-center items-center'>
+        <div className='mt-10 w-full h-auto flex flex-wrap justify-center mx-3'>
+            <form onSubmit={addToDo} className='... flex flex-wrap justify-center items-center'>
 
                 <textarea 
                 type="text" 
-                className='h-[3rem] overflow-y-hidden w-[30rem] p-2 rounded-xl bg-stone-100 border-4 outline-none border-orange-300 dark:border-orange-500 border-solid placeholder-gray-400 cursor-pointer' placeholder='write note'
+                className='h-[3rem] flex flex-wrap overflow-y-hidden my-3 w-[20rem] md:w-[30rem] p-2 rounded-xl bg-stone-100 border-4 outline-none border-orange-300 dark:border-orange-500 border-solid placeholder-gray-400 cursor-pointer' placeholder='write note'
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 />

@@ -8,9 +8,9 @@ function ToDoItems() {
     const dispatch = useDispatch();
 
     return (
-        <div className='mt-[3rem]'>
+        <div className='mt-[3rem] w-full flex flex-wrap justify-evenly md:mx-3'>
             {todos.map((todo) => 
-            <div key={todo.id} className='mb-10 flex items-center'>
+            <div key={todo.id} className='mb-[5rem] lg:mb-10 flex flex-wrap justify-evenly items-center'>
 
               <input 
               type="checkbox" 
@@ -19,14 +19,14 @@ function ToDoItems() {
               onChange={() => dispatch(toggleTodo(todo.id))}
               checked={todo.completed}
               />
-              <label htmlFor={todo.id} className="select-none cursor-pointer rounded-lg border-2 border-gray-800
+              <label htmlFor={todo.id} className="flex flex-wrap my-4 select-none cursor-pointer rounded-lg border-2 border-gray-800
               py-1 px-1 font-bold text-black transition-colors duration-200 ease-in-out bg-white peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-gray-200 
               hover:bg-gray-400"
               > Check me </label>
 
               <textarea
                     type='text'
-                    className={`w-[43rem] ${todo.expand ? "h-[6.5rem]" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] mx-3 outline-none overflow-y-scroll
+                    className={`flex flex-wrap md:w-[43rem] my-4 ${todo.expand ? "h-[6.5rem]" : "h-[3rem]"} rounded-xl ${todo.completed ? "bg-green-400 dark:bg-green-400 dark:text-rose-600"  : "bg-gray-200"} text-blue-700 font-bold dark:bg-gray-200 dark:text-emerald-800 p-2 pt-[0.82rem] md:mx-3 outline-none overflow-y-scroll
                     border-2 border-purple-800 cursor-default flux `}
                     value={todo.text}
                     readOnly={true}
@@ -34,7 +34,7 @@ function ToDoItems() {
               
               <button 
               type='button'
-              className="relative inline-block px-4 py-2 font-medium group"
+              className="relative inline-block m-4 px-4 py-2 font-medium group"
               onClick={() => dispatch(toggleExpand(todo.id))}
               >
                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
@@ -43,7 +43,7 @@ function ToDoItems() {
               </button>
               
               <button 
-              className="flex p-2.5 border-2 border-yellow-100 bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-500 rounded-xl hover:rounded-3xl dark:hover:bg-yellow-600 transition-all duration-300 text-white ml-3"
+              className="flex p-2.5 m-4 border-2 border-yellow-100 bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-500 rounded-xl hover:rounded-3xl dark:hover:bg-yellow-600 transition-all duration-300 text-white ml-3"
               onClick={() => {
                 if(todo.completed){
                     alert('Todo already completed !');
@@ -62,7 +62,7 @@ function ToDoItems() {
               
               <button 
               type='button' 
-              className=" border-2 border-red-100 bg-rose-500 hover:bg-rose-600 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ml-2"
+              className=" border-2 border-red-100 m-4 bg-rose-500 hover:bg-rose-600 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ml-2"
               onClick={() => dispatch(removeTodo(todo.id))}
               >
                   Delete <span className="ml-2">&#128465;</span>
