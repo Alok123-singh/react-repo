@@ -1,14 +1,49 @@
 import './index.css'
+import {Header, Footer} from './components/index.js'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import authService from './appwrite/auth'
+import {login, logout} from './store/authSlice.js'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
-  console.log(import.meta.env.VITE_APPWRITE_URL);
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-  return (
-    <div className='h-auto w-auto'>
-      <p className='bg-blue-500 w-auto h-auto p-3 rounded-3xl cursor-pointer flex flex-wrap text-center justify-center items-center text-white'>Hello World ALok singh Bais sgs ffbfbgsgfghhhhhhhhhhhhhhhhhhhh</p>
+  useEffect(() => {
+    authService.getCurrentUser()
+    .then((userData) => {
+        if(userData){
+            dispatch(login(userData));
+        }
+        else{
+            dispatch(logout());
+        }
+    })
+    .catch(() => console.log("Appwrite : Error in recieving info about current user."))
+    .finally(() => setLoading(false));
+
+  },[]);
+
+
+  return !loading ? (
+    <div className='min-h-screen w-full content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Header />
+        <main>
+        <Outlet />
+        </main>
+        <Footer />
+      </div>
     </div>
-  )
+  ) :
+  
+  (
+
+    <div className='bg-blue-400 flex justify-center items-center p-2 m-2 rounded-md'> Loading! </div>
+
+  ) 
 }
 
 export default App

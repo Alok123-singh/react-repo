@@ -1,7 +1,7 @@
 import conf from '../config/config.js'
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
-export class DatabaseSrvice{
+export class DatabaseService{
     client = new Client();
     databases;
     bucket;
@@ -15,7 +15,7 @@ export class DatabaseSrvice{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost(slug,{title, content, featuredImage, status, userId}){
+    async createPost({title, slug, content, featuredImage, status, userId}){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -136,3 +136,6 @@ export class DatabaseSrvice{
     }
 
 };
+
+const databaseService = new DatabaseService();
+export default databaseService;

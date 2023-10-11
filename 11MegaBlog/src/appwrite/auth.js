@@ -47,7 +47,7 @@ export class AuthService{
             
         } catch (error) {
             console.log("Appwrite error :: getCurrentUser :: ",error);
-            return (false);
+            return (null);
         }
 
         return (null);
@@ -60,6 +60,39 @@ export class AuthService{
         } catch (error) {
             console.log("Appwrite error :: logout :: ", error);
             return (false);
+        }
+    }
+
+    async updateEmail({email,password}) {
+        try{
+            if(email === '' || password === '') return (null);
+            return await this.account.updateEmail(email,password);
+        }
+        catch(error){
+            console.log("Appwrite error :: updateEmail :: ", error);
+            return (null);
+        }
+    }
+
+    async updatePassword({userId,newPassword,oldPassword}) {
+        try{
+            if(isNaN(oldPassword) || oldPassword === undefined) return (null);
+            return await this.account.updatePassword(newPassword,oldPassword);
+        }
+        catch(error){
+            console.log("Appwrite error :: updatePassword :: ", error);
+            return (null);
+        }
+    }
+
+    async updateUsername({name}) {
+        try{
+            if(name === '') return (null);
+            return await this.account.updateName(name);
+        }
+        catch(error){
+            console.log("Appwrite error :: updateName :: ", error);
+            return (null);
         }
     }
 
